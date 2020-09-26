@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Engineering for Microbiology</title>
+
+  <style>
+
+  .tab {
+    overflow: hidden;
+    background-color: #d8dde3;
+    width: 1500;
+    padding-right: 15%;
+    padding-left: 15%;
+  }
+
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 15px;
+    transition: 0.3s;
+    font-size: 17px;
+  }
+  .tab button:hover {background-color: #A9A9A9;}
+  body{
+    background-color: #d8dde3;
+  }
+
+/*----------------------------------------------------------------------------*/
+/* The actual timeline (the vertical ruler) */
+  .timeline {
+    position: relative;
+    max-width: 2000px;
+  }
+
+  .timeline::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    background-image: linear-gradient(#0800a1, #f2f2ff);
+    top: 0;
+    bottom: 0;
+    left:50%;
+    margin-left: -5px
+  }
+
+  .dateContainter {
+    position: relative;
+    padding-bottom: 50px;
+    background-color: inherit;
+    width: 100px;
+    height:10px;
+    z-index: 1;
+    left: 50%;
+    margin-left: -50px
+  }
+
+  .date {
+    background-color: #2e4073;
+    position: relative;
+    border-radius: 12px;
+  }
+  /* Container around content */
+  .containerLeft {
+    padding-top: 10px;
+    position: relative;
+    background-color: inherit;
+    width: 45%;
+    left:2.5%;
+  }
+  .containerRight {
+    padding-top: 10px;
+    position: relative;
+    background-color: inherit;
+    width: 45%;
+    left:52.5%;
+  }
+
+  .containerLeft::after {
+    content: '';
+    position: absolute;
+    right: -6%;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    top:45%;
+    border-left: 70px solid white;
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    z-index: 0;
+  }
+
+  .containerRight::before {
+    content: '';
+    position: absolute;
+    left: -6%;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    top:45%;
+    border-right: 70px solid white;
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    z-index: 0;
+  }
+
+  /* The actual content */
+  .content {
+    padding-right: 2px;
+    padding-left: 2px;
+    background-color: white;
+    position: relative;
+    border-radius: 12px;
+    z-index: 1;
+  }
+/*----------------------------------------------------------------------------*/
+  .tabcontent{
+    width: 1500;
+    padding-right: 15%;
+    padding-left: 15%;
+  }
+
+  h1 {color: #141E3C;
+    text-align: center;
+    font-size:300%;
+  }
+
+  .dataText{
+    text-align:
+    center;
+    color: white;
+  }
+
+  .containterTitle{
+    margin-bottom: 0px;
+    padding-top: 1px;
+    color: #004080;
+    font-family: verdana;
+    text-align: center;
+  }
+
+  .containterText{
+    color: #525252;
+    font-family:verdana;
+    font-size: 13px;
+    text-align: justify;
+    line-height: 150%;
+    margin-left: 0px;
+    margin-right: auto;
+ }
+
+  h2 {color: #004080;
+    font-family: verdana
+  }
+
+  img{width:35%;
+    height:auto;
+    margin-right:5%;
+    float: left;
+  }
+
+  p{color: #393e4a;
+    font-family: verdana;
+    margin-top: 5px;
+    font-size: 16px;
+    line-height: 30px;
+    padding-left: 10%;
+  }
+
+  .containterDivider{
+    border: 1px solid red;
+    border-radius: 7px 7px 7px 7px;
+    height:2.5px;
+    color:red; background-color:red;
+    width:100%;
+    text-align:center;
+  }
+
+  .column {
+    float: left;
+    width: 50%;
+  }
+
+/* Clearfix (clear floats) */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+
+  </style>
+
+</head>
+<body>
+
+  <h1>Engineering for Microbiology</h1>
+  <hr style=" border: 1px solid #EB5F0C; border-radius: 7px 7px 7px 7px;
+  height:5px; color:#EB5F0C; background-color:#EB5F0C; width:70%; text-align:center;">
+
+  <div class="tab">
+    <button class="tablinks" onclick="openTab(event, 'HOME')">HOME</button>
+    <button class="tablinks" onclick="openTab(event, 'RESEARCH')">RESEARCH</button>
+    <button class="tablinks" onclick="openTab(event, 'ABOUT ME')">ABOUT ME</button>
+  </div>
+
+  <div id="HOME" class="tabcontent">
+    <h2 style="text-align: center; color: #141E3C; font-size: 22px;">
+      What is engineering? What does it mean to engineer something for microbiology?
+    </h2>
+
+    <h4 style="margin-top: -1%;padding-bottom: 1%; text-align: center; color: #0077ff;">
+      I don't know. Let's find out together
+    </h4>
+    <div class = "row">
+      <div class = "column" style = "width: 30%">
+        <img src = "linkedin.png" alt = "profilePic" style="width:100%; padding-left:10%;margin-top: auto;margin-bottom: auto">
+      </div>
+      <div class = "column" style = "width: 70%;">
+        <h2 style="font-size: 20px;text-align: center; margin-top: 0; padding-left: 10%;">My name is XuHai Huang</h2>
+        <p>
+          But you can call me Jack. I am a graduate student at the University of Virginia studying Electrical Engineering. I received my B.S. in Physics from the University of Pittsburgh where I did reseach in condensed matter physics. Quantum physics is fascinating, but I found a passion in microfluidics in graduate school! I have since switched to researching novel microfluidic devices. If you’re interested in my research, check out the RESEARCH tab. Outside of science, I like working out, playing video games, and just enjoying the outdoors. I cannot conclude a about me without talking about my faith the life Christ have blessed me with. I currently serve with the Chinese Christian Student Fellowship at UVA and the youth group at Grace Faith Chinese Church. Studying, working, and having fun is good, but “Those who honor me I will honor.”
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div id="RESEARCH" class="tabcontent">
+    <h3>RESEARCH</h3>
+    <p>My current and past research.</p>
+  </div>
+
+  <div id="ABOUT ME" class="tabcontent" style = "padding-right: 15%; padding-left: 15%;">
+
+    <h2 style="text-align: center; color: #004080;">
+      The Journey So Far
+    </h2>
+    <div class="timeline">
+<!--2014---------------------------------------------------------------------->
+      <div class="dateContainter">
+        <div class="date">
+          <h2 class = "dataText">2014</h2>
+        </div>
+      </div>
+      <div class="containerLeft">
+        <div class="content">
+          <h2 class = "containterTitle"> WPAFB</h2>
+          <hr class = "containterDivider">
+          <div class = "row">
+            <div class = "column" style = "width: 70%; padding-left: 0px;">
+              <p class = "containterText">
+                It all started with a summer research intership at the Wright Patterson Air Force Base.
+                I worked in a Physics lab investigating electrical breakdown of gases from the application of high voltage.
+              </p>
+            </div>
+            <div class = "column" style = "width: 30%">
+              <img src = "WS2.jpg" alt = "profilePic" style="width:80%; left:25%">
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!--2015---------------------------------------------------------------------->
+      <div class="dateContainter">
+        <div class="date">
+          <h2 class = "dataText">2015</h2>
+        </div>
+      </div>
+
+      <div class="containerRight">
+        <div class="content">
+          <h2 class = "containterTitle"> COLLEGE!!</h2>
+          <hr class = "containterDivider">
+          <div class = "row">
+            <div class = "column" style = "width: 30%">
+              <img src = "pitt.png" alt = "profilePic" style="width:100%; padding-left:10%; padding-top:10%">
+            </div>
+            <div class = "column" style = "width: 70%;">
+              <p class = "containterText">
+                I moved to Pittsburgh, PA to start my B.S. in Physics at the University of Pittsburgh
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  <!--2016---------------------------------------------------------------------->
+        <div class="dateContainter">
+          <div class="date">
+            <h2 class = "dataText">2016</h2>
+          </div>
+        </div>
+
+<!--2017---------------------------------------------------------------------->
+      <div class="dateContainter">
+        <div class="date">
+          <h2 class = "dataText">2017</h2>
+        </div>
+      </div>
+
+
+      <div class="containerLeft">
+        <div class="content">
+          <h2 class = "containterTitle"> London</h2>
+          <hr class = "containterDivider">
+          <p class = "containterText">
+            <img src = "microFab2.jpg" alt = "profilePic" style="width: 25%;height: 25%; float: left">
+            After taking a class in nanoscience, I joined the Frolov Lab to reseach quantum phenomena of topological insulators.
+          </p>
+        </div>
+      </div>
+
+<!--2018---------------------------------------------------------------------->
+      <div class="dateContainter">
+        <div class="date">
+          <h2 class = "dataText">2018</h2>
+        </div>
+      </div>
+
+      <div class="containerRight">
+        <div class="content">
+          <h2 class = "containterTitle"> Grenoble, France</h2>
+            <hr class = "containterDivider">
+          <p class = "containterText">
+            <img src = "grenoble.jpg" alt = "profilePic">
+            I was fortunate to work as a research assistant at CEA, Grenoble France! The research focused on Silicon Germanium Heterostructure Junctions and the results were publish in Nano Letters. But the best part of that summer were the mountains in Grenoble.
+          </p>
+        </div>
+      </div>
+
+
+<!--2019---------------------------------------------------------------------->
+      <div class="dateContainter">
+        <div class="date">
+          <h2 class = "dataText">2019</h2>
+        </div>
+      </div>
+
+      <div class="containerLeft">
+        <div class="content">
+          <h2 class = "containterTitle"> Grad School</h2>
+          <hr class = "containterDivider">
+          <p class = "containterText">
+            <img src = "profilePic.jpg" alt = "profilePic">
+            I graduated college!! I moved to Virginia to be close to family and for my next step. M.S. in Electrical Engineering at the University of Virginia.
+          </p>
+        </div>
+      </div>
+<!--2020---------------------------------------------------------------------->
+      <div class="dateContainter">
+        <div class="date">
+          <h2 class = "dataText">2020</h2>
+        </div>
+      </div>
+      <div class="containerRight">
+        <div class="content">
+          <h2>Present</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  function openTab(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+  document.getElementsByClassName('tablinks')[2].click()
+  </script>
+  <!-- <a href="https://www.linkedin.com/in/xuhaihuang/" target="_blank">linkedin</a> -->
+</body>
+</html>

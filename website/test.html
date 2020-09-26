@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Engineering for Microbiology</title>
+
+  <style>
+
+  .tab {
+    overflow: hidden;
+    background-color: #d8dde3;
+    width: 1500;
+    padding-right: 15%;
+    padding-left: 15%;
+  }
+
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding-top: 15px;
+    transition: 0.3s;
+    font-size: 17px;
+  }
+  .tab button:hover {background-color: #A9A9A9;}
+  body{
+    background-color: #d8dde3;
+  }
+
+/*----------------------------------------------------------------------------*/
+/* The actual timeline (the vertical ruler) */
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  background-image: linear-gradient(#0800a1, #f2f2ff);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -5px;
+}
+
+.dateContainter {
+  position: relative;
+  padding-bottom: 50px;
+  background-color: inherit;
+  width: 100px;
+  height:10px;
+  z-index: 1;
+  left: 50%;
+  margin-left: -50px
+}
+
+.date {
+  background-color: #2e4073;
+  position: relative;
+  border-radius: 12px;
+}
+
+/* Container around content */
+.container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+  height: auto;
+}
+
+.containerLeft {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+/* The circles on the timeline */
+.container::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color:  #91b1ff;
+  border: 4px solid #2e4073;
+  top: 30px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.containerLeft::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color:  #91b1ff;
+  border: 4px solid #2e4073;
+  top: 30px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Place the container to the left */
+.left {
+  left: -80px;
+}
+
+/* Place the container to the right */
+.right {
+  left: 50%;
+}
+
+/* Add arrows to the left container (pointing right) */
+.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 35px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid white;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent white;
+}
+
+/* Add arrows to the right container (pointing left) */
+.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 35px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+
+/* Fix the circle for containers on the right side */
+.right::after {
+  left: -16px;
+}
+
+/* The actual content */
+.content {
+  padding-right: 2px;
+  padding-left: 2px;
+  background-color: white;
+  position: relative;
+  border-radius: 25px;
+  z-index: 1;
+}
+/* Media queries - Responsive timeline on screens less than 600px wide */
+/*----------------------------------------------------------------------------*/
+  .tabcontent{
+    width: 1500;
+    padding-right: 15%;
+    padding-left: 15%;
+  }
+
+  h1 {color: #141E3C;
+    text-align: center;
+    font-size:300%;
+  }
+
+  .dataText{
+    text-align: center;
+    color: white;
+  }
+
+  .containterTitle{
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: #004080;
+    font-family: verdana;
+  }
+  .containterText{
+    color: #525252;
+    font-family:verdana;
+    font-size: 17px;
+    line-height: 150%;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: auto;
+    margin-right: auto;
+ }
+
+  h2 {color: #004080;
+    font-family: verdana
+  }
+
+  /* img{width:35%;
+    height:auto;
+    margin-right:5%;
+    float: left;
+  } */
+
+  p{color: #393e4a;
+    font-family: monaco;
+    margin-top: 5px;
+    font-size: 16px;
+    line-height: 40px;
+    margin-bottom: 10em;
+    padding-left: 10%;
+  }
+
+  .containterDivider{
+    border: 1px solid red;
+    border-radius: 7px 7px 7px 7px;
+    height:2.5px;
+    color:red; background-color:red;
+    width:100%;
+    text-align:center;
+  }
+
+  .column {
+    float: left;
+    width: 50%;
+  }
+
+/* Clearfix (clear floats) */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+
+  </style>
+
+</head>
+<body>
+
+  <h1>Engineering for Microbiology</h1>
+  <hr style=" border: 1px solid #EB5F0C; border-radius: 7px 7px 7px 7px;
+  height:5px; color:#EB5F0C; background-color:#EB5F0C; width:70%; text-align:center;">
+
+  <div class="tab">
+    <button class="tablinks" onclick="openTab(event, 'HOME')">HOME</button>
+    <button class="tablinks" onclick="openTab(event, 'RESEARCH')">RESEARCH</button>
+    <button class="tablinks" onclick="openTab(event, 'ABOUT ME')">ABOUT ME</button>
+  </div>
+
+  <div id="HOME" class="tabcontent" style="padding-left:15%;padding-right:15%">
+    <h2 style="text-align: center; color: #141E3C; font-size: 22px;">
+      What is engineering? What does it mean to engineer something for microbiology?
+    </h2>
+
+    <h4 style="margin-top: -1%;padding-bottom: 1%; text-align: center; color: #0077ff;">
+      I don't know. Let's find out together
+    </h4>
+    <div class = "row">
+      <div class = "column" style = "width: 30%">
+        <img src = "linkedin.png" alt = "profilePic" style="width:100%; padding-left:10%;margin-top: auto;margin-bottom: auto">
+      </div>
+      <div class = "column" style = "width: 70%;">
+        <h2 style="font-size: 20px;text-align: center; margin-top: 0; padding-left: 10%;">My name is XuHai Huang</h2>
+        <p>
+          But you can call me Jack. I am a graduate student at the University of Virginia studying Electrical Engineering. I received my B.S. in Physics from the University of Pittsburgh where I did reseach in condensed matter physics. Quantum physics is fascinating, but I found a passion in microfluidics in graduate school! I have since switched to researching novel microfluidic devices. If you’re interested in my research, check out the RESEARCH tab. Outside of science, I like working out, playing video games, and just enjoying the outdoors. I cannot conclude a about me without talking about my faith the life Christ have blessed me with. I currently serve with the Chinese Christian Student Fellowship at UVA and the youth group at Grace Faith Chinese Church. Studying, working, and having fun is good, but “Those who honor me I will honor.”
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div id="RESEARCH" class="tabcontent" style="padding-left:15%;padding-right:15%">
+    <h2 style="text-align: center; color: #141E3C;">
+      My current and past research
+    </h2>
+    <div class = "row">
+        <h2 style="font-size: 20px;text-align: left; margin-top: 0; padding-left: 10%;">We Got the Collected cells Out</h2>
+        <p>
+          Collection2
+        </p>
+    </div>
+    <div class = "row">
+        <h2 style="font-size: 20px;text-align: left; margin-top: 0; padding-left: 10%;">Collection Channels in New DEP Device</h2>
+        <p>
+          Collection
+        </p>
+    </div>
+    <div class = "row">
+        <h2 style="font-size: 20px;text-align: left; margin-top: 0; padding-left: 10%;">COMSOL Simulation</h2>
+        <p>
+          COVID has has the lab to shut down so now all I can do is work from home.
+        </p>
+    </div>
+    <div class = "row">
+        <h2 style="font-size: 20px;text-align: left; margin-top: 0; padding-left: 10%;">First DEP in new device</h2>
+        <p>
+          Orifice DEP
+        </p>
+    </div>
+    <div class = "row">
+        <h2 style="font-size: 20px;text-align: left; margin-top: 0; padding-left: 10%;">RBC Pearl Chaining</h2>
+        <p>
+          Orifice DEP
+        </p>
+    </div>
+    <div class = "row">
+        <h2 style="font-size: 20px;text-align: left; margin-top: 0; padding-left: 10%;">Embossing Microfluidic Devices in COC</h2>
+        <p>
+          COC
+        </p>
+    </div>
+    <div class = "row">
+        <h2 style="font-size: 20px;text-align: left; margin-top: 0; padding-left: 10%;">First Project in Grad School</h2>
+        <p>
+          Python Gui
+        </p>
+    </div>
+    <div class = "row">
+        <h2 style="font-size: 20px;text-align: left; margin-top: 0; padding-left: 10%;">Silicon Germanium Heterostructure</h2>
+        <p>
+          Paper
+        </p>
+    </div>
+    <div class = "row">
+        <h2 style="font-size: 20px;text-align: left; margin-top: 0; padding-left: 10%;">Bismuth Antimonide</h2>
+        <p>
+          Paper
+        </p>
+    </div>
+
+  </div>
+
+  <div id="ABOUT ME" class="tabcontent" style="padding-left:25%;padding-right:25%">
+
+    <h2 style="text-align: center; color: #141E3C;">
+      The Journey So Far
+    </h2>
+
+    <div class="timeline">
+      <div class="dateContainter">
+        <div class="date">
+          <h2 class = "dataText">2014</h2>
+        </div>
+      </div>
+      <div class="container left">
+        <div class="content">
+          <h2 class = "containterTitle"> AFRL</h2>
+          <hr class = "containterDivider">
+          <div class = "row">
+            <div class = "column" style = "width: 30%">
+              <img src = "ws2.jpg" alt = "profilePic" style="width:100%; padding-top:10%; padding-bottom:10%;">
+            </div>
+            <div class = "column" style = "width: 70%;">
+              <p class = "containterText">
+                It all started with a summer research intership in a Physics lab at the Wright Patterson Air Force Base.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dateContainter">
+        <div class="date">
+          <h2 class = "dataText">2015</h2>
+        </div>
+      </div>
+      <div class="container right">
+        <div class="content">
+          <h2 class = "containterTitle"> COLLEGE!!</h2>
+          <hr class = "containterDivider">
+          <div class = "row">
+            <div class = "column" style = "width: 30%">
+              <img src = "pitt.png" alt = "profilePic" style="width:100%; padding-left:10%; padding-top:10%">
+            </div>
+            <div class = "column" style = "width: 70%;">
+              <p class = "containterText">
+                I moved to Pittsburgh, PA to start my B.S. in Physics at the University of Pittsburgh
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dateContainter">
+        <div class="date">
+          <h2 class = "dataText">2016</h2>
+        </div>
+      </div>
+      <div class="container left">
+        <div class="content">
+          <h2 class = "containterTitle"> London</h2>
+          <hr class = "containterDivider">
+          <div class = "row">
+            <div class = "column" style = "width: 30%">
+              <img src = "pitt.png" alt = "profilePic" style="width:100%; padding-left:10%; padding-top:10%">
+            </div>
+            <div class = "column" style = "width: 70%;">
+              <p class = "containterText">
+                I moved to Pittsburgh, PA to start my B.S. in Physics at the University of Pittsburgh
+              </p>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="dateContainter">
+      <div class="date">
+        <h2 class = "dataText">2017</h2>
+      </div>
+    </div>
+      <div class="container right">
+        <div class="content">
+          <h2 class = "containterTitle"> Nanoscience</h2>
+          <hr class = "containterDivider">
+          <div class = "row">
+            <div class = "column" style = "width: 30%">
+              <img src = "pitt.png" alt = "profilePic" style="width:100%; padding-left:10%; padding-top:10%">
+            </div>
+            <div class = "column" style = "width: 70%;">
+              <p class = "containterText">
+                I moved to Pittsburgh, PA to start my B.S. in Physics at the University of Pittsburgh
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dateContainter">
+        <div class="date">
+          <h2 class = "dataText">2018</h2>
+        </div>
+      </div>
+      <div class="container left">
+        <div class="content">
+          <h2 class = "containterTitle"> France</h2>
+          <hr class = "containterDivider">
+          <div class = "row">
+            <div class = "column" style = "width: 30%">
+              <img src = "pitt.png" alt = "profilePic" style="width:100%; padding-left:10%; padding-top:10%">
+            </div>
+            <div class = "column" style = "width: 70%;">
+              <p class = "containterText">
+                I moved to Pittsburgh, PA to start my B.S. in Physics at the University of Pittsburgh
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dateContainter">
+        <div class="date">
+          <h2 class = "dataText">2019</h2>
+        </div>
+      </div>
+      <div class="container right">
+        <div class="content">
+          <h2 class = "containterTitle"> UVA</h2>
+          <hr class = "containterDivider">
+          <div class = "row">
+            <div class = "column" style = "width: 30%">
+              <img src = "pitt.png" alt = "profilePic" style="width:100%; padding-left:10%; padding-top:10%">
+            </div>
+            <div class = "column" style = "width: 70%;">
+              <p class = "containterText">
+                I moved to Pittsburgh, PA to start my B.S. in Physics at the University of Pittsburgh
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dateContainter">
+        <div class="date">
+          <h2 class = "dataText">2020</h2>
+        </div>
+      </div>
+      <div class="container left">
+        <div class="content">
+          <h2 class = "containterTitle"> Present</h2>
+          <hr class = "containterDivider">
+          <div class = "row">
+            <div class = "column" style = "width: 30%">
+              <img src = "pitt.png" alt = "profilePic" style="width:100%; padding-left:10%; padding-top:10%">
+            </div>
+            <div class = "column" style = "width: 70%;">
+              <p class = "containterText">
+                I moved to Pittsburgh, PA to start my B.S. in Physics at the University of Pittsburgh
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  function openTab(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+  document.getElementsByClassName('tablinks')[1].click()
+  </script>
+  <!-- <a href="https://www.linkedin.com/in/xuhaihuang/" target="_blank">linkedin</a> -->
+</body>
+</html>
